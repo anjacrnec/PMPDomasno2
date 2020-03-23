@@ -1,12 +1,9 @@
 package com.example.pmpdomasno2;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Produkt implements Parcelable {
+public class Produkt {
 
     private String ime;
     private int counter;
@@ -73,33 +70,5 @@ public class Produkt implements Parcelable {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(ime);
-        dest.writeInt(counter);
-        dest.writeInt(slika);
-    }
-
-    protected Produkt(Parcel in) {
-        this.ime = in.readString();
-        this.counter = in.readInt();
-        this.slika=in.readInt();
-    }
-
-    public static final Creator<Produkt> CREATOR = new Creator<Produkt>(){
-        @Override
-        public Produkt createFromParcel(Parcel source) {
-            return new Produkt(source);
-        }
-
-        @Override
-        public Produkt[] newArray(int size) {
-            return new Produkt[size];
-        }
-    };
 }
